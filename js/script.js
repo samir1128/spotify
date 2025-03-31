@@ -38,7 +38,7 @@ async function getSongs(folder) {
 
   //FETCH FOLDERS
   currFolder = folder;
-  let a = await fetch(`/spotify/${folder}`)
+  let a = await fetch(`/spotify/songs/${folder}`)
   let response = await a.text();
   // console.log(response)
   let div = document.createElement('div')
