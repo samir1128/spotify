@@ -38,7 +38,7 @@ async function getSongs(folder) {
 
   //FETCH FOLDERS
   currFolder = folder;
-  let a = await fetch(`spotify/songs/${folder}`)
+  let a = await fetch(`/${folder}`)
   let response = await a.text();
   // console.log(response)
   let div = document.createElement('div')
@@ -129,7 +129,7 @@ const playMusic = (track, pause = false) => {
 async function disAlbum() {
 
   //FETCH FOLDERS ARRAY
-  let a = await fetch(`spotify/songs/`)
+  let a = await fetch(`/spotify/songs/`)
   let response = await a.text();
   let div = document.createElement('div')
   div.innerHTML = response;
@@ -149,7 +149,7 @@ async function disAlbum() {
       console.log(folder)
 
       //get metadata of the folder
-      let a = await fetch(`spotify/songs/${folder}/info.json`);
+      let a = await fetch(`${folder}/info.json`);
 
       let response = await a.json();
       console.log(response)
