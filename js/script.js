@@ -38,7 +38,7 @@ async function getSongs(folder) {
 
   //FETCH FOLDERS
   currFolder = folder;
-  let a = await fetch(`http://127.0.0.1:5500/${folder}`)
+  let a = await fetch(`/spotify/${folder}`)
   let response = await a.text();
   // console.log(response)
   let div = document.createElement('div')
@@ -129,7 +129,7 @@ const playMusic = (track, pause = false) => {
 async function disAlbum() {
 
   //FETCH FOLDERS ARRAY
-  let a = await fetch(`http://127.0.0.1:5500/songs/`)
+  let a = await fetch(`/spotify/songs/`)
   let response = await a.text();
   let div = document.createElement('div')
   div.innerHTML = response;
@@ -149,7 +149,7 @@ async function disAlbum() {
       console.log(folder)
 
       //get metadata of the folder
-      let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
+      let a = await fetch(`/spotify/songs/${folder}/info.json`);
 
       let response = await a.json();
       console.log(response)
@@ -330,47 +330,7 @@ async function main() {
 };
 //MAIN FUNCTION ENDS
 
-// play the first song
-// var audio = new Audio(songs[0]);
-// await audio.play()
-
-
-
-
-
 main()
 
 
-
-
-
-
-
-
-
-
-
-
-/*
-//  audio.addEventListener('loadeddata', ()=>{
-    //   let duration= audio.duration;
-    //   console.log(duration, audio.currentSrc, audio.currentTime)
-    // })
-/*
-  //listen for timeupdate
-  currentSong.addEventListener("timeupdate", () => {
-    // console.log(currentSong.currentTime, currentSong.duration)
-     document.querySelector('.songtime').innerHTML = `${formatTime(currentSong.currentTime)}/${formatTime(currentSong.duration)}`
-    // document.getElementsByTagName('input').style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%"
-    });
-
-
-
-
-
-
-
-
-
-*/
 
