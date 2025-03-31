@@ -38,7 +38,7 @@ async function getSongs(folder) {
 
   //FETCH FOLDERS
   currFolder = folder;
-  let a = await fetch(`/spotify/songs/${folder}`)
+  let a = await fetch(`spotify/songs/${folder}`)
   let response = await a.text();
   // console.log(response)
   let div = document.createElement('div')
@@ -129,7 +129,7 @@ const playMusic = (track, pause = false) => {
 async function disAlbum() {
 
   //FETCH FOLDERS ARRAY
-  let a = await fetch(`/spotify/songs/`)
+  let a = await fetch(`spotify/songs/`)
   let response = await a.text();
   let div = document.createElement('div')
   div.innerHTML = response;
@@ -149,7 +149,7 @@ async function disAlbum() {
       console.log(folder)
 
       //get metadata of the folder
-      let a = await fetch(`/spotify/songs/${folder}/info.json`);
+      let a = await fetch(`spotify/songs/${folder}/info.json`);
 
       let response = await a.json();
       console.log(response)
@@ -168,7 +168,7 @@ async function disAlbum() {
                             </svg>
                         </div>
 
-                        <img src="/songs/${folder}/cover-img.jpg">
+                        <img src="spotify/songs/${folder}/cover-img.jpg">
 
                         <h2>${response.title}</h2>
                         <p>${response.description}</p>
@@ -198,7 +198,7 @@ async function disAlbum() {
   //LOAD PLAYLIST WHEN CARD CLICKED
   Array.from(document.getElementsByClassName('card')).forEach((e) => {
     e.addEventListener('click', async (e) => {
-      songs = await getSongs(`songs/${e.currentTarget.dataset.folder}`);
+      songs = await getSongs(`spotify/songs/${e.currentTarget.dataset.folder}`);
       playMusic(songs[0])
     })
   });
@@ -212,7 +212,7 @@ async function disAlbum() {
 //MAIN FUNCTION
 async function main() {
   // get the song list
-  await getSongs('songs/ncs');
+  await getSongs('spotify/songs/cool');
   playMusic(songs[0], true)
 
 
