@@ -1,0 +1,584 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Roboto:wght@700&display=swap");
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --a: 0;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+}
+
+.left {
+    width: 30vw;
+    padding: 10px 10px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+.close {
+    display: none;
+}
+
+
+
+.home ul li {
+    display: flex;
+    gap: 15px;
+    width: 14px;
+    list-style: none;
+    padding-top: 14px;
+    font-weight: bold;
+}
+
+.heading {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    padding: 14px 14px;
+    font-weight: bold;
+    align-items: center;
+    font-size: 13px;
+   
+}
+
+.heading img {
+    width: 25px;
+}
+
+.library {
+    flex-grow: 1;
+}
+
+.libraryHeader{
+    font-size: 24PX;
+}
+.songList {
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 10px;
+}
+
+.songList ul {
+    padding: 0 12px;
+}
+
+.songList .info {
+    font-size: 16px;
+}
+
+.songList ul li {
+    /* list-style: none; */
+    list-style-type: decimal;
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    padding: 6px 0;
+    border: 1px solid white;
+    margin: 12px 0;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.playnow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playnow span {
+    font-size: 14px;
+    width: 65px;
+    padding: 12px;
+}
+
+
+.footer {
+    display: flex;
+    font-size: 10px;
+    gap: 13px;
+    padding: 15px 5px;
+    flex-wrap: wrap;
+}
+
+
+.footer a {
+    color: grey;
+    text-decoration: none;
+}
+
+
+/* right */
+
+.hamburger {
+    display: none;
+}
+
+.hamburgerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    height: 100vh;
+    margin: 8px 8px 8px 4px;
+    box-sizing: border-box;
+
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    height: 15vh;
+
+    align-items: center;
+    margin: 10px 0;
+    justify-content: space-between;
+    background-color: rgb(34, 34, 34);
+   
+}
+
+.spotifyPlaylist {
+    padding: 6px;
+    flex-grow: 1;
+    height: 1200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  
+}
+
+.header>* {
+    padding: 12px;
+}
+
+/* buttons */
+
+.buttons>* {
+    margin: 0 12px;
+}
+
+
+.signupbtn {
+    background-color: rgb(34, 34, 34);
+    color: rgb(156, 148, 148);
+    font-weight: bold;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signupbtn:hover {
+    color: #fff;
+    font-size: 1.01rem;
+}
+
+.loginbtn {
+    background-color: #fff;
+    border-radius: 22px;
+    color: #000;
+    font-weight: bold;
+    padding: 0.5em;
+    width: 92px;
+    cursor: pointer;
+    transition: all .1s;
+    display: inline-block;
+}
+
+.loginbtn:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+
+
+
+/* cardlist */
+
+.cardContainer {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 30px;
+    overflow-y: auto;
+    max-height: 800px;
+    /* background: red; */
+}
+
+
+
+/* Fix for uniform card height */
+.card {
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #252525;
+    position: relative;
+    height: 280px; /* Set a fixed height for all cards */
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: 180px; /* Fixed height for images */
+    object-fit: cover; /* Maintain aspect ratio but cover the container */
+}
+/* edit */
+
+.card:hover {
+    cursor: pointer;
+    background-color: #4a4949;
+    --a: 1;
+}
+
+.card>* {
+    padding-top: 4px;
+}
+
+
+
+.play {
+    padding: 4px;
+    position: absolute;
+    top: 130px;
+    right: 25px;
+    opacity: var(--a);
+    transition: all 0.5s ease-out;
+}
+
+.play:hover {
+    opacity: 1;
+}
+
+
+
+/* playbar */
+
+.playbar {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 98%;
+    background-color: #252525;
+    height: 24vh;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    overflow-y: hidden; /* Hide overflow by default */
+}
+
+/* Adjust the abovebar to be more compact */
+.abovebar {
+    display: flex;
+    padding: 10px 15px 0 15px;
+    width: 100%;
+    align-items: center;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.seekbar {
+    width: 98%;
+    align-self: center;
+    cursor: pointer;
+    background-color: gray;
+    margin: 10px auto; /* Center it and give equal margins top/bottom */
+    min-height: 5px; /* Ensure minimum height */
+}
+
+.songinfo {
+    width: 250px;
+    text-align: center;
+    margin: auto;
+}
+
+.timevol {
+    display: flex;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    align-items: center;
+}
+
+.volume {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.range {
+    cursor: pointer;
+}
+
+.songbuttons {
+    display: flex;
+    /* width: 30%; */
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 15px;
+}
+
+.songbuttons img {
+    cursor: pointer;
+}
+
+
+
+
+/* query */
+
+
+@media (max-width: 1200px) {
+    .left {
+        background-color: #000;
+        position: absolute;
+        left: -140%;
+        transition: all .4s;
+        z-index: 1;
+        width: 40vw;
+    }
+
+    .close {
+        position: absolute;
+        display: block;
+        right: 30px;
+        top: 25px;
+    }
+
+    .right {
+        width: 100vw;
+    }
+
+    .playbar {
+        overflow-x: hidden;
+        height: 32vh;
+    }
+
+    .abovebar {
+        margin: 0 0 12px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+
+@media (max-width:800px) {
+    .left {
+        width: 50vw;
+    }
+
+    .header {
+       
+        align-items: center;
+    }
+
+    .cardContainer {
+        margin: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        padding: 10px;
+        
+    }
+
+    .playbar {
+        height: 34vh; /* Increase height as in your original code */
+        overflow-y: hidden; /* Ensure no scrolling */
+    }
+    
+    .abovebar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 5px 15px 0 15px; /* Reduced padding */
+    }
+    
+    /* Make child elements more compact */
+    .songinfo {
+        width: 100%;
+        margin: 5px auto;
+    }
+    
+    .songbuttons {
+        margin: 5px 0;
+    }
+}
+
+
+/* Fix for volume range positioning between 700px and 500px */
+@media (max-width: 700px) and (min-width: 501px) {
+    .cardContainer {
+        justify-content: start;
+    }
+    
+    .timevol {
+        flex-direction: column;
+        gap: 10px; /* Increased gap */
+        align-items: center; /* Center items */
+    }
+    
+    .songtime {
+        display: block; /* Ensure songtime is visible */
+        margin-bottom: 3px; /* Add small spacing */
+    }
+    
+    .volume {
+        display: flex;
+        align-items: center;
+        width: 100%; /* Full width */
+        justify-content: center; /* Center the volume control */
+    }
+    
+    /* Adjust playbar to fit content */
+    .playbar {
+        height: 36vh; /* Slightly increase height in this range */
+        padding: 10px 0; /* Add padding top and bottom */
+    }
+    
+    .abovebar {
+        gap: 5px; /* Reduced gap */
+    }
+}
+
+
+/* Fix the syntax error at the end of the previous media query */
+@media (max-width:500px) {
+    .left {
+        width: 400px;
+    }
+
+    .header {
+        /* height: 12vh; */
+        align-items: center;
+    }
+
+    .buttons>* {
+        margin: 0 5px;
+    }
+
+    .header>* {
+        padding: 2px;
+    }
+    .spotifyPlaylist {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+    }
+    .playbar {
+        height: 25vh; /* Use your original height */
+    
+        flex-direction: column;
+        
+    }
+    
+    /* Make elements more compact */
+    .songinfo, .songbuttons, .timevol {
+        margin: 3px 0;
+    }
+    
+    .seekbar {
+        margin: 5px auto; /* Reduced margins */
+    }
+} /* Remove the semicolon here */
+
+
+
+@media (max-width: 460px) {
+    .header{
+     height: 10vh;   
+    }
+    .playbar {
+        padding: 10px 0;
+        height: auto; /* Let height adjust to content */
+        min-height: 20vh; /* Minimum height */
+        max-height: 32vh; /* Maximum height */
+    }
+    
+    .abovebar {
+        padding: 0px 10px;
+        gap: 5px;
+    }
+    
+    .songbuttons {
+        margin: 5px 0;
+    }
+    
+    .timevol {
+        width: 100%;
+        justify-content: center;
+    }
+    .spotifyPlaylist {
+        padding: 16px 0;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    
+    .cardContainer {
+        display: flex;
+        flex-direction: column; /* Stack cards vertically */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        align-items: center;
+        width: 100%;
+        margin: 10px 0;
+        padding: 0;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        overflow-y: auto; /* Enable vertical scrolling */
+        max-height: 60vh; /* Control height to enable scrolling */
+    }
+    
+    .card {
+        width: 85%;
+        min-width: 250px; /* Minimum width */
+        max-width: 300px; /* Maximum width */
+        margin: 10px 0; /* Vertical margin only */
+        height: 270px; /* Fixed height */
+        flex-shrink: 0; /* Prevent card shrinking */
+    }
+    
+    /* Remove any horizontal scrolling from parent containers */
+    .right {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 320px) {
+    .playbar {
+        height: 20vh; /* Slightly larger to fit everything */
+    }
+    
+    .songinfo, .songbuttons, .timevol {
+        scale: 0.9; /* Slightly scale down elements */
+    }
+}
