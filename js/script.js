@@ -129,7 +129,7 @@ const playMusic = (track, pause = false) => {
 async function disAlbum() {
 
   //FETCH FOLDERS ARRAY
-  let a = await fetch(`/spotify/songs/`)
+  let a = await fetch(`songs/`)
   let response = await a.text();
   let div = document.createElement('div')
   div.innerHTML = response;
