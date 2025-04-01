@@ -37,7 +37,7 @@ async function getSongs(folder) {
 
   //FETCH FOLDERS
   currFolder = folder;
-  let a = await fetch(`http://127.0.0.1:5500/${folder}`)
+  let a = await fetch(`/${folder}`)
   let response = await a.text();
   // console.log(response)
   let div = document.createElement('div')
@@ -128,7 +128,7 @@ const playMusic = (track, pause = false) => {
 async function disAlbum() {
 
   //FETCH FOLDERS ARRAY
-  let a = await fetch(`http://127.0.0.1:5500/songs/`)
+  let a = await fetch(`/songs/`)
   let response = await a.text();
   let div = document.createElement('div')
   div.innerHTML = response;
@@ -142,13 +142,13 @@ async function disAlbum() {
   for (let i = 0; i < Arr.length; i++) {
     const en = Arr[i];
 
-    if (en.href.includes('/songs/')) {
+    if (en.href.includes('/songs/') && !en.href.includes('.htaccess')) {
       let folder = en.href.split('/').pop()
 
       console.log(folder)
 
       //get metadata of the folder
-      let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
+      let a = await fetch(`/songs/${folder}/info.json`);
 
       let response = await a.json();
       console.log(response)
@@ -211,7 +211,7 @@ async function disAlbum() {
 //MAIN FUNCTION
 async function main() {
   // get the song list
-  await getSongs('songs/ncs');
+  await getSongs('songs/cool');
   playMusic(songs[0], true)
 
 
